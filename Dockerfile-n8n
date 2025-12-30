@@ -1,0 +1,31 @@
+#Immagine Pubblica
+FROM n8nio/n8n:latest
+USER root
+#Installazione di Bitwarden Cli per operazioni aggiuntive
+RUN npm install -g @bitwarden/cli
+
+#Variabili "pubbliche"
+ENV N8N_NATIVE_PYTHON_RUNNER=true
+ENV DB_POSTGRESDB_DATABASE=neondb
+ENV DB_POSTGRESDB_PORT=5432
+ENV DB_POSTGRESDB_SCHEMA=public
+ENV DB_POSTGRESDB_SSL_ENABLED=true
+ENV DB_POSTGRESDB_USER=neondb_owner
+ENV GENERIC_TIMEZONE="Europe/Rome"
+ENV N8N_PROTOCOL=https
+ENV TZ="Europe/Rome"
+ENV DB_TYPE="postgresdb"
+ENV NODES_EXCLUDE="[]"
+ENV N8N_METRICS=true
+ENV N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES=false
+ENV CODE_ENABLE_STDOUT=true
+ENV N8N_DEFAULT_LOCALE=it
+
+#Variabili ambientali da modificare in base all'URL esterno
+
+# N8N_HOST="example-n8n.onrender.com"
+# WEBHOOK_URL="https://example-n8n.onrender.com"
+# DB_POSTGRESDB_HOST=
+# DB_POSTGRESDB_PASSWORD=
+# N8N_ENCRYPTION_KEY=
+# N8N_LICENSE_ACTIVATION_KEY=
