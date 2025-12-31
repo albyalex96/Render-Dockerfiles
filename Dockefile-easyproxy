@@ -1,0 +1,3 @@
+FROM qwertyuiop8899/easyproxy
+
+ENV PORT=8000S
