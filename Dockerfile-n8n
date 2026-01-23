@@ -2,7 +2,8 @@
 FROM n8nio/n8n:latest
 USER root
 #Installazione di Bitwarden Cli per operazioni aggiuntive
-RUN npm install -g @bitwarden/cli
+RUN npm install -g @bitwarden/cli && \
+    ln -s $(npm config get prefix)/bin/bw /usr/local/bin/bw
 
 #Variabili "pubbliche"
 ENV N8N_NATIVE_PYTHON_RUNNER=true
